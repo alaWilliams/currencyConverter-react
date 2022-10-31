@@ -4,14 +4,19 @@ import '../index.css'
 import ForeignCurrency from "./ForeignCurrency";
 import DomesticCurrency from "./DomesticCurrency"
 import Button from "./Button"
+import { useState } from "react"
 
 const Body = () => {
+  const [inputValue, setInputValue] = useState()
+  const [selectValue, setSelectValue] = useState()
+  const [data, setData] = useState()
+  console.log(inputValue, selectValue, data)
   return (
     <>
       <div className="container">
         <div className="grid-container">
-          <ForeignCurrency />
-          <DomesticCurrency />
+          <ForeignCurrency setInputValue={setInputValue}  setSelectValue={setSelectValue}/>
+          <DomesticCurrency setData={setData}/>
           <Button />
         </div>
       </div>

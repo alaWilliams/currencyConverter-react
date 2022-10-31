@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <h1 className="header"> Currency converter</h1>
+    <h1 className="header">Currency converter</h1>
   )
 }
 
