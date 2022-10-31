@@ -10,7 +10,6 @@ const Body = () => {
   const [inputValue, setInputValue] = useState()
   const [selectValue, setSelectValue] = useState()
   const [data, setData] = useState()
-  console.log(inputValue, selectValue, data)
   return (
     <>
       <div className="container">

@@ -1,9 +1,10 @@
-import GetCurrencies from '../services/GetCurrencies'
+
+import { fetchCurrencies } from '../services/fetchCurrencies'
 
 const Button = () => {
   return (
     <div className="button-wrapper">
-      <button onClick = {GetCurrencies} className="btn" id="btn">Convert</button>
+      <button onClick={fetchCurrencies} className="btn" id="btn">Convert</button>
     </div>
   )
 }
