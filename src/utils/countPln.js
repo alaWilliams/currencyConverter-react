@@ -1,5 +1,5 @@
-const countPln = (foreignCurrency, domesticCurrency) => {
-  const count = countPln(foreignCurrency * domesticCurrency);
+const countPln = (firstCurrency, secondCurrency) => {
+  const count = firstCurrency * secondCurrency;
   return count.toFixed(2) * 1;
 }
 

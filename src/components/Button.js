@@ -1,10 +1,11 @@
-
-import { fetchCurrencies } from '../services/fetchCurrencies'
-
 const Button = () => {
+
+  const calculate = () => {
+    console.log(2)
+  }
   return (
     <div className="button-wrapper">
-      <button onClick={fetchCurrencies} className="btn" id="btn">Convert</button>
+      <button onClick={calculate} className="btn" id="btn">Convert</button>
     </div>
   )
 }
