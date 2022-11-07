@@ -4,25 +4,24 @@ import { useState, useEffect } from 'react';
 import ForeignCurrency from './components/ForeignCurrency'
 import DomesticCurrency from './components/DomesticCurrency'
 import fetchCurrencies from './services/fetchCurrencies';
-import countPln from './utils/countPln'
 
 function App() {
-  const [inputValue, setInputValue] = useState(0)
-  const [selectValue, setSelectValue] = useState('USD')
-  const [rate, setRate] = useState('')
-
+  const [inputValue, setInputValue] = useState(0);
+  const [selectValue, setSelectValue] = useState('USD');
+  const [rate, setRate] = useState('');
+  const [result, setResult] = useState(0);
   useEffect(() => {
     fetchCurrencies()
       .then(data => {
         const mid = data[0].rates.find(element => element.code === selectValue).mid;
-        const converted = countPln(mid, inputValue);
         setRate(mid);
-        console.log(converted);
-        console.log(data)
-        return converted
       })
   }, [selectValue]
   );
+
+  const calculate = () => {
+    setResult((rate * inputValue).toFixed(2));
+  }
 
   return (
     <>
@@ -30,8 +29,8 @@ function App() {
       <div className="container">
         <div className="grid-container">
           <ForeignCurrency setInputValue={setInputValue}  setSelectValue={setSelectValue}/>
-          <DomesticCurrency setRate={setRate}/>
-          <Button />
+          <DomesticCurrency result={result}/>
+          <Button onClick={calculate}/>
         </div>
       </div>
     </>

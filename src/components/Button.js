@@ -1,11 +1,8 @@
-const Button = () => {
+const Button = ({ onClick }) => {
 
-  const calculate = () => {
-    console.log(2)
-  }
   return (
     <div className="button-wrapper">
-      <button onClick={calculate} className="btn" id="btn">Convert</button>
+      <button onClick={onClick} className="btn" id="btn">Convert</button>
     </div>
   )
 }

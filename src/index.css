@@ -27,7 +27,7 @@ body {
 
 .wrapper {
   display: flex;
-  width: 100%
+  width: 100%;
 }
 .btn {
   width: 95%;
@@ -68,6 +68,7 @@ body {
   width: 20%;
   background-color: hsl(0, 6%, 82%);
   border: none;
+  height: 4rem;
 }
 
 
@@ -105,7 +106,7 @@ body {
     grid-template-areas: 
     "foreign-section domestic-section "
     "button button";
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     width: 80%;
   }
 
@@ -114,7 +115,8 @@ body {
   }
 
   .domestic-section {
-    grid-area: domestic-section
+    grid-area: domestic-section;
+   
   }
 
   .foreign-section {

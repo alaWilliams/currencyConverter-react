@@ -5,7 +5,7 @@ const ForeignCurrency = ({setInputValue, setSelectValue}) => {
       <div className="wrapper">
         <form className="form">
           <div className="input">
-            <input onInput={(event) => setInputValue(event.target.value)} type="number" className="input-value" placeholder="Enter amount" />
+            <input onInput={(event) => setInputValue(Number(event.target.value))} type="number" className="input-value" placeholder="Enter amount" />
           </div>
           <select onChange={(event) => setSelectValue(event.target.value)} className="currency currencies" id="currency">
             <option value="">--Currency List--</option>
