@@ -1,14 +1,11 @@
-const DomesticCurrency = ({result}) => {
-  return (
-    <>
-      <section className="domestic-section">
-        <div className="wrapper">
-       
-          <div className="pln-name">{result} PLN</div>
-        </div>
-      </section>
-    </>
-  )
-}
+const DomesticCurrency = ({ result }) => {
+	return (
+		<section className="domestic-section">
+			<div className="wrapper">
+				<div className="pln-name">{result} PLN</div>
+			</div>
+		</section>
+	);
+};
 
-export default DomesticCurrency
+export default DomesticCurrency;
