@@ -1,18 +1,18 @@
-const ForeignCurrency = ({ setInputValue, setSelectValue }) => {
+const ForeignCurrency = ({ handleSetInputValue, handleSetSelectValue }) => {
 	return (
 		<section className="foreign-section">
 			<div className="form-wrapper">
 				<form className="form">
 					<div className="input">
 						<input
-							onInput={(event) => setInputValue(Number(event.target.value))}
+							onInput={handleSetInputValue}
 							type="number"
 							className="input-value"
 							placeholder="Enter amount"
 						/>
 					</div>
 					<select
-						onChange={(event) => setSelectValue(event.target.value)}
+						onChange={handleSetSelectValue}
 						className="currency currencies"
 						id="currency"
 					>

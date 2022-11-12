@@ -10,6 +10,12 @@ function App() {
 	const [selectValue, setSelectValue] = useState('USD');
 	const [rate, setRate] = useState('');
 	const [result, setResult] = useState(0);
+  const handleSetSelectValue = (event) => {
+    setSelectValue(event.target.value)
+  };
+  const handleSetInputValue = (event) => {
+    setInputValue(Number(event.target.value))
+  }
 	useEffect(() => {
 		fetchCurrencies().then((data) => {
 			const mid = data[0].rates.find(element => element.code === selectValue).mid;
@@ -26,8 +32,8 @@ function App() {
 			<Header />
 			<div className="container">
 					<ForeignCurrency
-						setInputValue={setInputValue}
-						setSelectValue={setSelectValue}
+						handleSetInputValue={handleSetInputValue}
+						handleSetSelectValue={handleSetSelectValue}
 					/>
 					<DomesticCurrency result={result} />
 				</div>
