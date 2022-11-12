@@ -10,34 +10,43 @@ function App() {
 	const [selectValue, setSelectValue] = useState('USD');
 	const [rate, setRate] = useState('');
 	const [result, setResult] = useState(0);
-  const handleSetSelectValue = (event) => {
-    setSelectValue(event.target.value)
-  };
-  const handleSetInputValue = (event) => {
-    setInputValue(Number(event.target.value))
-  }
+	const handleSetSelectValue = (event) => {
+		setSelectValue(event.target.value);
+	};
+	const handleSetInputValue = (event) => {
+		setInputValue(Number(event.target.value));
+	};
 	useEffect(() => {
 		fetchCurrencies().then((data) => {
-			const mid = data[0].rates.find(element => element.code === selectValue).mid;
+			const mid = data[0].rates.find(
+				(element) => element.code === selectValue
+			)?.mid;
 			setRate(mid);
 		});
 	}, [selectValue]);
 
 	const calculate = () => {
-		setResult((rate * inputValue).toFixed(2));
+		if (Number.isNaN(rate)) {
+			alert('Error. Could not calculate rate.');
+		}
+		if (inputValue <= 0) {
+			alert('Number must be higher than zero.');
+		} else {
+			setResult((rate * inputValue).toFixed(2));
+		}
 	};
 
 	return (
 		<>
 			<Header />
 			<div className="container">
-					<ForeignCurrency
-						handleSetInputValue={handleSetInputValue}
-						handleSetSelectValue={handleSetSelectValue}
-					/>
-					<DomesticCurrency result={result} />
-				</div>
-        <Button onClick={calculate} />
+				<ForeignCurrency
+					handleSetInputValue={handleSetInputValue}
+					handleSetSelectValue={handleSetSelectValue}
+				/>
+				<DomesticCurrency result={result} />
+			</div>
+			<Button onClick={calculate} />
 		</>
 	);
 }

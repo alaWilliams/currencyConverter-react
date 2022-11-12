@@ -9,6 +9,8 @@ const ForeignCurrency = ({ handleSetInputValue, handleSetSelectValue }) => {
 							type="number"
 							className="input-value"
 							placeholder="Enter amount"
+							step="0.01"
+							min="0"
 						/>
 					</div>
 					<select
